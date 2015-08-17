@@ -35,7 +35,7 @@ int main(int argc, const char * argv[])
         for (auto i = 1; i < argc; ++i)
         {
             evaluateTicTacToes(args[i], output);
-            std::cout << output << std::endl;
+            std::cout << args[i] << "," << output << std::endl;
         }
     }
     
