@@ -306,6 +306,17 @@ TEST (SampleTie, Case2)
     // No code change needed, change for Case1 apparently holds.
 }
 
+// Post submission... on review realised ties were checked too early.
+TEST (OWins, FullBoard)
+{
+    std::string result;
+    
+    EXPECT_EQ(71164415, evaluateTicTacToes("ooooxxxxo", result));
+    EXPECT_EQ("O wins", result);
+    
+    // No code change needed, change for Case1 apparently holds.
+}
+
 // At this point I have 10 tests all passing, so am pretty confident
 // As I'm getting back in to C++ for the first time in a while
 // And never have done C++ 11, please comment on anything that I might

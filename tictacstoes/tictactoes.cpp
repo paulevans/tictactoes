@@ -108,11 +108,7 @@ uint32_t evaluateTicTacToes(
     constexpr uint32_t O_WIN_VERT_RIGHT = 0x9200 << 11;
     
     // Yoda if I guess. Old habits and all that
-    if (0X1FF == (0X1FF & encodedGame))
-    {
-        output = "Tie Game";
-    }
-    else if (X_WIN_HOR_TOP == (X_WIN_HOR_TOP & encodedGame)
+    if (X_WIN_HOR_TOP == (X_WIN_HOR_TOP & encodedGame)
         || X_WIN_HOR_MIDDLE == (X_WIN_HOR_MIDDLE & encodedGame)
         || X_WIN_HOR_BOTTOM == (X_WIN_HOR_BOTTOM & encodedGame)
         || X_WIN_DIAG_LEFT == (X_WIN_DIAG_LEFT & encodedGame)
@@ -135,6 +131,12 @@ uint32_t evaluateTicTacToes(
              )
     {
         output = "O wins";
+    }
+    // 0X1FF == first 9 bits set (so all positions gone)
+    // Testing after win checks as last move could have been winner
+    else if (0X1FF == (0X1FF & encodedGame))
+    {
+        output = "Tie Game";
     }
     else
     {
